@@ -1,24 +1,32 @@
 from django.contrib import admin
 
 # Register your models here.
-from futbolec.models import Equipo, Jugador, Campeonato, C_equipos
+from futbolec.models import Equipo, Jugador, Campeonato, Equipos
+
 
 class EquipoAdmin(admin.ModelAdmin):
-    list_display = ('nombre_e','siglas', 'usu_twitter')
+    list_display = ('nombre', 'siglas', 'twitter')
+
 
 admin.site.register(Equipo, EquipoAdmin)
 
+
 class JugadorAdmin(admin.ModelAdmin):
-    list_display = ('nombre_j', 'posicion', 'numero', 'sueldo','equipo')
+    list_display = ('nombre', 'posicion', 'numero', 'sueldo', 'equipo')
+
 
 admin.site.register(Jugador, JugadorAdmin)
 
+
 class CampeonatoAdmin(admin.ModelAdmin):
-    list_display = ('nombre_c', 'auspiciante')
+    list_display = ('nombre', 'auspiciante')
+
 
 admin.site.register(Campeonato, CampeonatoAdmin)
 
-class C_equiposAdmin(admin.ModelAdmin):
+
+class EquiposAdmin(admin.ModelAdmin):
     list_display = ('año', 'equipo', 'campeonato')
 
-admin.site.register(C_equipos, C_equiposAdmin)
+
+admin.site.register(Equipos, EquiposAdmin)
